@@ -1,0 +1,152 @@
+
+
+<svg width="600"
+     height="450"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .tick-label { font-family: sans-serif; font-size: 11px; fill: #333; }
+    .axis-line, .tick-line { stroke: #666; }
+    .title { font-family: sans-serif; font-size: 14px; font-weight: bold; fill: #222; }
+    .axis-label { font-family: sans-serif; font-size: 12px; fill: #333; }
+    .gridline { stroke: #cccccc; stroke-width: 1; }
+  </style>
+
+  <g transform="translate(70,40)">
+
+    <rect x="0" y="0" width="500" height="350" fill="#EBEBEB"/>
+
+    <text class="title" text-anchor="middle"
+          x="250.0" y="-15">
+      Distribución del nivel de estrés
+    </text>
+
+
+
+      <line class="gridline"
+            x1="0" x2="500"
+            y1="350.0" y2="350.0"/>
+      <line class="gridline"
+            x1="0" x2="500"
+            y1="260.37131882202306" y2="260.37131882202306"/>
+      <line class="gridline"
+            x1="0" x2="500"
+            y1="170.74263764404608" y2="170.74263764404608"/>
+      <line class="gridline"
+            x1="0" x2="500"
+            y1="81.11395646606917" y2="81.11395646606917"/>
+
+      <rect x="6.25"
+            y="31.81818181818187"
+            width="70.83333333333333"
+            height="318.18181818181813"
+            fill="tomato"/>
+      <rect x="89.58333333333333"
+            y="36.299615877080726"
+            width="70.83333333333333"
+            height="313.7003841229193"
+            fill="tomato"/>
+      <rect x="172.91666666666666"
+            y="49.743918053777236"
+            width="70.83333333333333"
+            height="300.25608194622276"
+            fill="tomato"/>
+      <rect x="256.25"
+            y="143.85403329065304"
+            width="70.83333333333333"
+            height="206.14596670934696"
+            fill="tomato"/>
+      <rect x="339.5833333333333"
+            y="125.92829705505764"
+            width="70.83333333333333"
+            height="224.07170294494236"
+            fill="tomato"/>
+      <rect x="422.91666666666663"
+            y="36.299615877080726"
+            width="70.83333333333333"
+            height="313.7003841229193"
+            fill="tomato"/>
+
+    <g transform="translate(0,350)">
+      <!-- axis orientation=bottom range=[0,500] ticks=6 -->
+  <g class="axis axis-bottom" transform="translate(0, 0)">
+    <line class="axis-line" x1="0" y1="0" x2="500" y2="0" stroke="currentColor" stroke-width="1"/>
+    <g class="tick" transform="translate(6.25, 0)">
+      <line class="tick-line" x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="0" y="9" text-anchor="middle" dominant-baseline="hanging" dy="0.15em" >3</text>
+    </g>
+    <g class="tick" transform="translate(89.58, 0)">
+      <line class="tick-line" x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="0" y="9" text-anchor="middle" dominant-baseline="hanging" dy="0.15em" >4</text>
+    </g>
+    <g class="tick" transform="translate(172.92, 0)">
+      <line class="tick-line" x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="0" y="9" text-anchor="middle" dominant-baseline="hanging" dy="0.15em" >5</text>
+    </g>
+    <g class="tick" transform="translate(256.25, 0)">
+      <line class="tick-line" x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="0" y="9" text-anchor="middle" dominant-baseline="hanging" dy="0.15em" >6</text>
+    </g>
+    <g class="tick" transform="translate(339.58, 0)">
+      <line class="tick-line" x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="0" y="9" text-anchor="middle" dominant-baseline="hanging" dy="0.15em" >7</text>
+    </g>
+    <g class="tick" transform="translate(422.92, 0)">
+      <line class="tick-line" x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="0" y="9" text-anchor="middle" dominant-baseline="hanging" dy="0.15em" >8</text>
+    </g>
+  </g>
+
+    </g>
+
+    <g> <!-- axis orientation=left range=[350,0] ticks=8 -->
+  <g class="axis axis-left" transform="translate(0, 0)">
+    <line class="axis-line" x1="0" y1="350" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+    <g class="tick" transform="translate(0, 350)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >0</text>
+    </g>
+    <g class="tick" transform="translate(0, 305.19)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >10</text>
+    </g>
+    <g class="tick" transform="translate(0, 260.37)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >20</text>
+    </g>
+    <g class="tick" transform="translate(0, 215.56)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >30</text>
+    </g>
+    <g class="tick" transform="translate(0, 170.74)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >40</text>
+    </g>
+    <g class="tick" transform="translate(0, 125.93)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >50</text>
+    </g>
+    <g class="tick" transform="translate(0, 81.11)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >60</text>
+    </g>
+    <g class="tick" transform="translate(0, 36.30)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >70</text>
+    </g>
+  </g>
+ </g>
+
+    <text class="axis-label" text-anchor="middle"
+          x="250.0" y="395">
+      Nivel de estrés
+    </text>
+
+    <text class="axis-label" text-anchor="middle"
+          transform="rotate(-90)"
+          x="175.0" y="-50">
+      Cantidad de personas
+    </text>
+
+  </g>
+</svg>

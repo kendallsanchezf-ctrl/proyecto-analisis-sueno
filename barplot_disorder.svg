@@ -1,0 +1,116 @@
+
+
+<svg width="600"
+     height="450"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <style>
+    .tick-label { font-family: sans-serif; font-size: 11px; fill: #333; }
+    .axis-line, .tick-line { stroke: #666; }
+    .title { font-family: sans-serif; font-size: 14px; font-weight: bold; fill: #222; }
+    .axis-label { font-family: sans-serif; font-size: 12px; fill: #333; }
+    .gridline { stroke: #cccccc; stroke-width: 1; }
+  </style>
+
+  <g transform="translate(70,40)">
+
+    <rect x="0" y="0" width="500" height="350" fill="#EBEBEB"/>
+
+    <text class="title" text-anchor="middle"
+          x="250.0" y="-15">
+      Frecuencia de trastornos del sueño
+    </text>
+
+
+
+      <line class="gridline"
+            x1="0" x2="500"
+            y1="350.0" y2="350.0"/>
+      <line class="gridline"
+            x1="0" x2="500"
+            y1="272.22222222222223" y2="272.22222222222223"/>
+      <line class="gridline"
+            x1="0" x2="500"
+            y1="194.44444444444446" y2="194.44444444444446"/>
+      <line class="gridline"
+            x1="0" x2="500"
+            y1="116.66666666666669" y2="116.66666666666669"/>
+      <line class="gridline"
+            x1="0" x2="500"
+            y1="38.888888888888914" y2="38.888888888888914"/>
+
+      <rect x="12.5"
+            y="230.22222222222223"
+            width="141.66666666666666"
+            height="119.77777777777777"
+            fill="darkgreen"/>
+      <rect x="179.16666666666666"
+            y="9.333333333333314"
+            width="141.66666666666666"
+            height="340.6666666666667"
+            fill="darkgreen"/>
+      <rect x="345.8333333333333"
+            y="228.66666666666666"
+            width="141.66666666666666"
+            height="121.33333333333334"
+            fill="darkgreen"/>
+
+    <g transform="translate(0,350)">
+      <!-- axis orientation=bottom range=[0,500] ticks=3 -->
+  <g class="axis axis-bottom" transform="translate(0, 0)">
+    <line class="axis-line" x1="0" y1="0" x2="500" y2="0" stroke="currentColor" stroke-width="1"/>
+    <g class="tick" transform="translate(12.50, 0)">
+      <line class="tick-line" x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="0" y="9" text-anchor="middle" dominant-baseline="hanging" dy="0.15em" >Insomnia</text>
+    </g>
+    <g class="tick" transform="translate(179.17, 0)">
+      <line class="tick-line" x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="0" y="9" text-anchor="middle" dominant-baseline="hanging" dy="0.15em" >None</text>
+    </g>
+    <g class="tick" transform="translate(345.83, 0)">
+      <line class="tick-line" x1="0" y1="0" x2="0" y2="6" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="0" y="9" text-anchor="middle" dominant-baseline="hanging" dy="0.15em" >Sleep Apnea</text>
+    </g>
+  </g>
+
+    </g>
+
+    <g> <!-- axis orientation=left range=[350,0] ticks=5 -->
+  <g class="axis axis-left" transform="translate(0, 0)">
+    <line class="axis-line" x1="0" y1="350" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+    <g class="tick" transform="translate(0, 350)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >0</text>
+    </g>
+    <g class="tick" transform="translate(0, 272.22)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >50</text>
+    </g>
+    <g class="tick" transform="translate(0, 194.44)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >100</text>
+    </g>
+    <g class="tick" transform="translate(0, 116.67)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >150</text>
+    </g>
+    <g class="tick" transform="translate(0, 38.89)">
+      <line class="tick-line" x1="-6" y1="0" x2="0" y2="0" stroke="currentColor" stroke-width="1"/>
+      <text class="tick-label" x="-9" y="0" text-anchor="end" dominant-baseline="central" >200</text>
+    </g>
+  </g>
+ </g>
+
+    <text class="axis-label" text-anchor="middle"
+          x="250.0" y="395">
+      Tipo de trastorno
+    </text>
+
+    <text class="axis-label" text-anchor="middle"
+          transform="rotate(-90)"
+          x="175.0" y="-50">
+      Cantidad de personas
+    </text>
+
+  </g>
+</svg>

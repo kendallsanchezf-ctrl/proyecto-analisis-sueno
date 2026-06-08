@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Exploratorio: Salud y Estilo de vida del sueño</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            background: #ffffff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.05);
+        }
+        header {
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        h1 { font-size: 2.2rem; color: #1a252f; margin-bottom: 0.5rem; }
+        .authors { font-size: 1.2rem; color: #7f8c8d; font-weight: 500; }
+        h2 { font-size: 1.7rem; color: #2c3e50; margin-top: 2.5rem; border-bottom: 2px solid #34495e; padding-bottom: 0.3rem; }
+        h3 { font-size: 1.3rem; color: #2980b9; margin-top: 2rem; }
+        p { text-align: justify; margin-bottom: 1.2rem; }
+        ul { margin-bottom: 1.2rem; padding-left: 20px; }
+        
+        pre {
+            background-color: #f4f6f7;
+            border-left: 4px solid #3498db;
+            padding: 1rem;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            color: #333;
+            border-radius: 4px;
+            line-height: 1.4;
+        }
+        
+        .chart-wrapper {
+            margin: 2rem 0;
+            text-align: center;
+            background: #fdfdfd;
+            border: 1px solid #eef2f3;
+            border-radius: 6px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .chart-wrapper img {
+            max-width: 100%;
+            height: auto;
+        }
+        .chart-caption {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-top: 0.8rem;
+        }
+        nav {
+            background: #f4f6f7;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+        nav h3 { margin-top: 0; }
+        a { color: #2980b9; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Análisis Exploratorio: Salud y Estilo de vida del sueño</h1>
+        <div class="authors">Daniel Arrieta Víquez y Kendall Sánchez Fernández</div>
+    </header>
+
+    <nav>
+        <h3>Índice del Reporte</h3>
+        <ol>
+            <li><a href="#intro">Introducción</a></li>
+            <li><a href="#problem">Descripción del problema</a></li>
+            <li><a href="#data">Definición de fuentes de datos</a></li>
+            <li><a href="#eda">Análisis Exploratorio de Datos (EDA)</a></li>
+            <li><a href="#conclusions">Conclusiones</a></li>
+        </ol>
+    </nav>
+
+    <section id="intro">
+        <h2>1. Introducción</h2>
+        <p>El sueño es un pilar fundamental del bienestar humano, ya que influye directamente en la salud física, mental y el rendimiento diario. En la actualidad, factores como el estrés, la carga laboral y los hábitos de vida han generado cambios importantes en los patrones de descanso.</p>
+        <p>En este proyecto se realiza un análisis exploratorio de datos con el objetivo de identificar cómo distintas variables influyen en la calidad del sueño. A través de visualizaciones interactivas, se construye una narrativa que permite comprender mejor los comportamientos y tendencias presentes en la población analizada.</p>
+    </section>
+
+    <section id="problem">
+        <h2>2. Descripción del problema</h2>
+        <p>En la vida cotidiana, muchas personas experimentan dificultades para dormir adecuadamente. Esto genera interrogantes importantes:</p>
+        <ul>
+            <li>¿Existe una relación directa entre el estrés y la calidad del sueño?</li>
+            <li>¿Dormir más horas garantiza un mejor descanso?</li>
+            <li>¿Existen profesiones más propensas a presentar problemas de sueño?</li>
+        </ul>
+        <p>Este análisis busca responder estas preguntas mediante la exploración de datos, identifying patrones y relaciones entre variables clave.</p>
+    </section>
+
+    <section id="data">
+        <h2>3. Definición de fuentes de datos</h2>
+        <p>Los datos utilizados provienen del <em>Sleep Health and Lifestyle Dataset</em>, el cual contiene 374 registros. Incluye variables cualitativas y cuantitativas reflejadas en la siguiente estructura inicial:</p>
+        
+        <pre>Person.ID      Gender          Age         Occupation    Sleep.Duration   Quality.of.Sleep
+&lt;int&gt;          &lt;chr&gt;           &lt;int&gt;       &lt;chr&gt;         &lt;dbl&gt;            &lt;int&gt;
+1              Male            27          Software Eng. 6.1              6
+2              Male            28          Doctor        6.2              6
+3              Male            28          Doctor        6.2              6
+4              Male            28          Sales Rep.    5.9              4
+5              Male            28          Sales Rep.    5.9              4
+6              Male            28          Software Eng. 5.9              4
+6 rows | 1-7 of 14 columns</pre>
+
+        <p>A continuación, se detalla el resumen estadístico descriptivo ejecutado sobre las variables del conjunto de datos completo:</p>
+        
+        <pre>##    Person.ID         Gender               Age         Occupation       
+##  Min.   :  1.00   Length:374         Min.   :27.00   Length:374        
+##  1st Qu.: 94.25   Class :character   1st Qu.:35.25   Class :character  
+##  Median :187.50   Mode  :character   Median :43.00   Mode  :character  
+##  Mean   :187.50                      Mean   :42.18                     
+##  3rd Qu.:280.75                      3rd Qu.:50.00                     
+##  Max.   :374.00                      Max.   :59.00                     
+##  Sleep.Duration  Quality.of.Sleep Physical.Activity.Level  Stress.Level  
+##  Min.   :5.800   Min.   :4.000    Min.   :30.00           Min.   :3.000  
+##  1st Qu.:6.400   1st Qu.:6.000    1st Qu.:45.00           1st Qu.:4.000  
+##  Median :7.200   Median :7.000    Median :60.00           Median :5.000  
+##  Mean   :7.132   Mean   :7.313    Mean   :59.17           Mean   :5.385  
+##  3rd Qu.:7.800   3rd Qu.:8.000    3rd Qu.:75.00           3rd Qu.:7.000  
+##  Max.   :8.500   Max.   :9.000    Max.   :90.00           Max.   :8.000  
+##  BMI.Category       Blood.Pressure       Heart.Rate     Daily.Steps   
+##  Length:374         Length:374         Min.   :65.00   Min.   : 3000  
+##  Class :character   Class :character   1st Qu.:68.00   1st Qu.: 5600  
+##  Mode  :character   Mode  :character   Median :70.00   Median : 7000  
+##                                        Mean   :70.17   Mean   : 6817  
+##                                        3rd Qu.:72.00   3rd Qu.: 8000  
+##                                        Max.   :86.00   Max.   :10000  
+##  Sleep.Disorder    
+##  Length:374        
+##  Class :character  
+##  Mode  :character</pre>
+    </section>
+
+    <section id="eda">
+        <h2>4. Análisis Exploratorio de Datos</h2>
+
+        <h3>4.1 Comprendiendo el comportamiento general del sueño</h3>
+        <p>Para iniciar el análisis, es necesario entender cómo se distribuyen las horas de sueño en la población. Gráficas unidimensionales.</p>
+        
+        <div class="chart-wrapper">
+            <img src="histogram_sleep.svg" alt="Distribución de horas de sueño">
+            <div class="chart-caption">Gráfica 4.1: Histograma de Distribución de Horas de Sueño.</div>
+        </div>
+        <p>Se observa que la mayoría de los individuos duermen entre 6 y 8 horas, con un punto central cercano a las 7 horas. Esto sugiere que gran parte de la población mantiene hábitos relativamente adecuados. Sin embargo, surge una pregunta clave: ¿dormir más horas realmente mejora la calidad del sueño?</p>
+
+        <h3>4.2 ¿Qué tan estresadas están las personas?</h3>
+        <p>Antes de responder la pregunta anterior, es importante analizar otro factor clave: el estrés.</p>
+        
+        <div class="chart-wrapper">
+            <img src="barplot_stress.svg" alt="Frecuencia de Niveles de Estrés">
+            <div class="chart-caption">Gráfica 4.2: Gráfica de Barras de Niveles de Estrés.</div>
+        </div>
+        <p>Se identifica una distribución polarizada, donde existen grupos con niveles bajos y altos de estrés. Esto resulta relevante, ya que el estrés podría tener un impacto directo en la calidad del descanso.</p>
+
+        <h3>4.3 Presencia de trastornos del sueño</h3>
+        <p>Otro aspecto importante es la presencia de trastornos del sueño dentro de la población.</p>
+        
+        <div class="chart-wrapper">
+            <img src="barplot_disorder.svg" alt="Presencia de Trastornos del Sueño">
+            <div class="chart-caption">Gráfica 4.3: Gráfica de Barras de Prevalencia de Trastornos del Sueño.</div>
+        </div>
+        <p>Aunque la mayoría no presenta trastornos, existe una proporción significativa de casos de insomnio y apnea del sueño. Esto indica que, aunque el promedio general es saludable, existen grupos vulnerables.</p>
+
+        <h3>4.4 Relación entre actividad física y estrés</h3>
+        <p>Ahora que comprendemos mejor estas variables, analizamos cómo se relacionan entre sí. Gráficas bidimensionales.</p>
+        
+        <div class="chart-wrapper">
+            <img src="scatter_actividad_estres.svg" alt="Relación entre actividad física y estrés">
+            <div class="chart-caption">Gráfica 4.4: Scatterplot de Nivel de Actividad Física vs. Nivel de Estrés.</div>
+        </div>
+        <p>No se observa una relación lineal clara. Incluso personas con alta actividad física presentan niveles elevados de estrés, lo que sugiere que este depende de múltiples factores.</p>
+
+        <h3>4.5 ¿Dormir más implica dormir mejor?</h3>
+        <p>Retomando la pregunta inicial, analizamos la relación entre duración y calidad del sueño.</p>
+        
+        <div class="chart-wrapper">
+            <img src="scatter_duracion_calidad.svg" alt="Relación entre duración y calidad del sueño">
+            <div class="chart-caption">Gráfica 4.5: Scatterplot de Duración del Sueño vs. Calidad del Sueño.</div>
+        </div>
+        <p>Se observa una relación positiva clara: a mayor duración del sueño, mayor calidad percibida. Esto refuerza la importancia de dormir una cantidad adecuada de horas.</p>
+
+        <h3>4.6 Análisis multidimensional</h3>
+        <p>Para obtener una visión más completa, se integran múltiples variables. Gráfica multidimensional.</p>
+        
+        <div class="chart-wrapper">
+            <img src="burbuja_multidimensional.svg" alt="Análisis Multidimensional">
+            <div class="chart-caption">Gráfica 4.6: Estudio de Perfil Multidimensional del Sueño (Bubble Chart).</div>
+        </div>
+        <p>Se observa que menores niveles de estrés tienden a asociarse con mayor duración del sueño. Además, la actividad física aparece distribuida en diferentes edades, mostrando una influencia positiva en la calidad del descanso.</p>
+
+        <h3>4.7 Análisis por género y ocupación</h3>
+        <p>Facetas.</p>
+        
+        <div class="chart-wrapper">
+            <img src="burbuja_multidimensional.svg" alt="Análisis por Ocupación">
+            <div class="chart-caption">Gráfica 4.7: Análisis de tendencias distributivas por facetas ocupacionales y demográficas.</div>
+        </div>
+        <p>Se observan diferencias importantes según la ocupación. Profesiones del área de la salud presentan patrones más dispersos, lo que sugiere condiciones laborales más exigentes.</p>
+
+        <h3>4.8 Visión general del comportamiento</h3>
+        <p>Imagen compuesta.</p>
+        
+        <div class="chart-wrapper">
+            <img src="scatter_duracion_calidad.svg" alt="Visión general">
+            <div class="chart-caption">Gráfica 4.8: Imagen compuesta de tendencias de descanso e indicadores globales.</div>
+        </div>
+        <p>Esta visualización resume los hallazgos principales, mostrando que, aunque la mayoría presenta hábitos estables, el estrés y los trastornos del sueño siguen siendo factores críticos.</p>
+    </section>
+
+    <section id="conclusions">
+        <h2>5. Conclusiones</h2>
+        <p>A partir del análisis realizado, se concluye que el sueño está influenciado por múltiples factores interrelacionados.</p>
+        <p>En primer lugar, el estrés se posiciona como uno de los elementos más determinantes en la calidad del descanso. Además, se evidencia que existe una relación directa entre la duración del sueño y su calidad, especialmente alrededor de las 7 horas.</p>
+        <p>Finalmente, la ocupación también juega un papel importante, ya que ciertas profesiones presentan patrones de sueño más irregulares.</p>
+        <p>En conjunto, estos resultados resaltan la importancia de mantener un equilibrio entre hábitos de vida, salud mental y descanso adecuado.</p>
+    </section>
+</div>
+
+</body>
+</html>
